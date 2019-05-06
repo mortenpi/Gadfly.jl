@@ -3,6 +3,7 @@
 ## [`Geom.abline`](@ref)
 
 ```@example
+using Main: PNGWritable # hide
 using Gadfly, RDatasets, Compose, Random
 Random.seed!(123)
 set_default_plot_size(21cm, 8cm)
@@ -18,6 +19,7 @@ abline = Geom.abline(color="red", style=:dash)
 p2 = plot(D, x=:x, y=:y,  Geom.point,  Scale.x_asinh, Scale.y_log,
      intercept=[148], slope=[-0.5], abline)
 hstack(p1, p2)
+PNGWritable(ans) # hide
 ```
 
 

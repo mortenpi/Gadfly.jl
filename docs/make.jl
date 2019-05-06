@@ -1,5 +1,10 @@
 using Documenter, Gadfly, Compose, Cairo
 
+struct PNGWritable{T}
+    x :: T
+end
+Base.show(io::IO, m::MIME"image/png", x::PNGWritable) = show(io, m, x.x)
+
 makedocs(
     modules = [Gadfly],
     clean = false,
